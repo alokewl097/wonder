@@ -1,0 +1,393 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: Tahoma, Helvetica, sans-serif;
+    color: #1e1e1e;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+.body {
+    background: #1D2C38 url(./assets/images/bg-login.jpg) no-repeat center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.clearfix,
+.over-wrap,
+.pop-warp,
+.log-wrap,
+.col-center,
+.marquee-pop .input-list,
+.change_pass,
+.loginWrap,
+.maintain-wrap {
+    zoom: 1;
+}
+
+.loginWrap,
+.maintain-wrap {
+    position: absolute;
+    top: 15%;
+    left: calc(50% - 540px / 2);
+    width: 540px;
+    height: 408px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.float-L,
+.delete,
+.marquee-pop .input-list li,
+.login-panel,
+.change_pass .login-panel,
+.change_pass .note,
+.kv {
+    float: left;
+}
+
+.kv {
+    width: 250px;
+    height: 100%;
+    background: #ffb80c url(/adminfiles/img/bg-login_wrap.webp?v=0.08) no-repeat;
+    border-radius: 8px 0 0 8px;
+}
+
+.kv {
+    background: none;
+}
+
+h2 {
+    font-size: 13px;
+    line-height: 20px;
+    padding-top: 6px;
+    margin-bottom: 6px;
+}
+
+.login-panel {
+    color: #243a48;
+    margin: 100px 0 0 25px;
+}
+
+.login-panel dt {
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 15px;
+}
+
+.login-panel dd {
+    position: relative;
+    width: 220px;
+    margin-bottom: 7px;
+}
+
+input,
+textarea {
+    font-family: Tahoma, Helvetica, sans-serif;
+    color: #1e1e1e;
+    font-size: 12px;
+    border: 0px #aaa solid;
+    background: #fff;
+    box-shadow: inset 0px 1px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    padding: 5px;
+    margin: 0 5px 5px 0;
+    box-sizing: border-box;
+}
+
+.login-panel input,
+.login-panel textarea {
+    width: 100%;
+    height: 33px;
+    font-size: 14px;
+    line-height: 21px;
+    border: 1px solid #aaa;
+    box-shadow: inset 0px 2px 0px 0px rgba(0, 0, 0, 0.1);
+    margin: 0;
+}
+
+.login-panel .valid-code img {
+    position: absolute;
+    width: 70px;
+    height: 19px;
+    right: 5px;
+    top: 7px;
+}
+
+.login-panel .valid-code img {
+    position: absolute;
+    width: 62px;
+    height: auto;
+    right: 5px;
+    top: 2px;
+}
+
+.login-panel .error {
+    background: transparent;
+    color: #d0021b;
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.align-C,
+.loading li,
+.btn,
+.btn-send,
+.marquee-pop .pages a,
+.maintain-content,
+.change_pass,
+.browser-wrap,
+.policy-link,
+.supportWrap,
+.announce-footer,
+.urgent-notice .announce-header h1,
+.announce-content table,
+.article-date,
+.news-wrap .announce-header,
+.apk-img,
+.marquee-pop .nofound .nofound_box dd {
+    text-align: center;
+}
+
+.displayB,
+.delete,
+.btn,
+.btn-send,
+.marquee-pop .pages a,
+.marquee-pop .input-list,
+.marquee-pop .input-list li,
+.age_box li .secondary:before,
+.age_box li .btn-send:before,
+.power-wrap h3 img,
+.power-wrap-w img,
+.power-wrap-b img,
+.announce-footer .confirm-checkbox,
+body.bigexch:before,
+body.sgexch247:before,
+body.baji:before,
+body.baji365:before,
+body.sharet365:before,
+body.baazi365:before {
+    display: block;
+}
+
+.btn,
+.btn-send,
+.marquee-pop .pages a {
+    background: #eee url(/assets/images/bg-btn.gif) repeat-x;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    color: #1e1e1e;
+    font-weight: bold;
+    line-height: 23px;
+    font-size: 12px;
+    margin: 0 5px 10px 0;
+}
+
+.btn-send {
+    background: #ffa00c url(/assets/images/bg-send.gif) repeat-x;
+    border-color: #cb8009;
+}
+
+.login-panel .btn-send {
+    width: 218px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 15px;
+    margin: 15px 0 0;
+}
+
+.moreinfoWrap {
+    position: absolute;
+    top: calc(15% + 428px);
+    left: 50%;
+    width: 540px;
+    margin-left: -270px;
+    padding-bottom: 35px;
+}
+
+.align-C,
+.loading li,
+.btn,
+.btn-send,
+.marquee-pop .pages a,
+.maintain-content,
+.change_pass,
+.browser-wrap,
+.policy-link,
+.supportWrap,
+.announce-footer,
+.urgent-notice .announce-header h1,
+.announce-content table,
+.article-date,
+.news-wrap .announce-header,
+.apk-img,
+.marquee-pop .nofound .nofound_box dd {
+    text-align: center;
+}
+
+.supportWrap {
+    background-color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 20px;
+}
+
+.supportWrap .supportService {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-width: 1px 0 1px 0;
+}
+
+.supportWrap .supportService a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+}
+
+[class^="support-"] img {
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.supportWrap .supportService img {
+    width: 25px;
+    height: 100%;
+}
+
+.support-mail img {
+    background-image: url('data:image/svg+xml,<svg width="22" height="22" xmlns="http://www.w3.org/2000/svg"><g fill="rgba(255,255,255,0.6)" fill-rule="nonzero"><path d="M8.292 15.677v3.865a.626.626 0 001.128.37l2.26-3.077-3.388-1.158zM20.738 1.116a.625.625 0 00-.652-.045l-18.75 9.792a.627.627 0 00.087 1.145l5.212 1.782 11.1-9.492-8.59 10.35 8.737 2.985a.628.628 0 00.82-.5l2.291-15.416a.626.626 0 00-.255-.601z"/></g></svg>');
+}
+
+.support-whatsapp img {
+    background-image: url('data:image/svg+xml,<svg width="22" height="22" xmlns="http://www.w3.org/2000/svg"><path d="M11.002 1h-.005C5.485 1 1 5.485 1 11c0 2.188.705 4.215 1.904 5.861l-1.246 3.715L5.5 19.347A9.913 9.913 0 0011.002 21C16.517 21 21 16.514 21 11S16.516 1 11.002 1zm5.82 14.121c-.242.681-1.2 1.246-1.963 1.412-.523.11-1.205.2-3.503-.753-2.938-1.218-4.831-4.204-4.978-4.398-.142-.193-1.188-1.58-1.188-3.016 0-1.435.729-2.134 1.022-2.434.242-.246.64-.358 1.023-.358.124 0 .235.006.335.011.294.012.441.03.635.494.241.581.829 2.016.899 2.163.071.148.142.348.042.542-.094.2-.176.288-.324.458-.147.17-.287.3-.434.483-.136.159-.288.329-.118.622.17.288.758 1.247 1.623 2.017 1.116.993 2.02 1.311 2.345 1.446.24.1.528.076.705-.111.223-.242.5-.642.78-1.035.2-.283.453-.318.718-.218.27.094 1.699.8 1.993.946.293.148.487.218.558.342.07.123.07.705-.17 1.387z" fill="rgba(255,255,255,0.6)" fill-rule="nonzero"/></svg>');
+}
+
+.support-telegram img {
+    background-image: url('data:image/svg+xml,<svg width="22" height="22" xmlns="http://www.w3.org/2000/svg"><path d="M11 21c5.524 0 10-4.476 10-10S16.524 1 11 1 1 5.476 1 11s4.476 10 10 10zM5.576 10.783l9.642-3.717c.447-.162.838.109.693.786V7.85l-1.641 7.734c-.122.548-.447.682-.903.423l-2.5-1.842-1.206 1.162c-.133.133-.246.245-.504.245l.177-2.544 4.633-4.186c.202-.177-.045-.277-.31-.1L7.93 12.346l-2.468-.77c-.536-.17-.548-.535.113-.794z" fill="rgba(255,255,255,0.6)" fill-rule="nonzero"/></svg>');
+}
+
+.support-skype img {
+    background-image: url('data:image/svg+xml,<svg width="22" height="22" xmlns="http://www.w3.org/2000/svg"><path d="M20.425 13.123c.145-.652.22-1.327.22-2.02 0-5.193-4.27-9.404-9.539-9.404-.555 0-1.1.047-1.631.137A5.567 5.567 0 006.533 1C3.475 1 1 3.441 1 6.455c0 1.006.278 1.947.76 2.759a9.32 9.32 0 00-.194 1.89c0 5.195 4.272 9.406 9.539 9.406.598 0 1.181-.055 1.747-.158A5.58 5.58 0 0015.47 21C18.524 21 21 18.558 21 15.546c0-.871-.207-1.692-.575-2.423zm-4.426 2.476c-.442.616-1.093 1.104-1.939 1.448-.836.344-1.838.52-2.98.52-1.37 0-2.519-.238-3.416-.708a4.434 4.434 0 01-1.57-1.375c-.407-.575-.61-1.146-.61-1.699 0-.344.133-.643.397-.886.261-.244.596-.365.997-.365.327 0 .61.096.84.287.218.184.407.457.558.805.169.383.353.705.547.957.188.246.457.45.8.612.347.16.813.244 1.386.244.789 0 1.436-.166 1.921-.494.476-.319.706-.704.706-1.174 0-.37-.121-.662-.367-.891-.26-.24-.603-.426-1.018-.555a20.235 20.235 0 00-1.75-.427c-.991-.21-1.832-.457-2.5-.738-.683-.287-1.236-.685-1.638-1.183-.41-.506-.618-1.14-.618-1.885 0-.71.218-1.35.648-1.902.426-.549 1.048-.977 1.852-1.269.791-.288 1.733-.435 2.799-.435.851 0 1.6.098 2.226.29.629.193 1.159.453 1.575.774.42.325.733.669.928 1.029.197.362.298.724.298 1.072 0 .337-.131.643-.391.908a1.32 1.32 0 01-.98.404c-.352 0-.63-.087-.821-.253-.179-.156-.365-.4-.57-.747-.238-.445-.526-.797-.856-1.045-.322-.242-.857-.362-1.594-.362-.683 0-1.24.135-1.653.403-.397.256-.591.551-.591.901 0 .214.063.393.191.546.135.165.327.306.569.426.25.124.509.224.768.294.265.073.708.181 1.32.32.772.163 1.48.347 2.108.545a6.759 6.759 0 011.634.734c.456.294.818.669 1.075 1.119.258.454.388 1.01.388 1.657a3.54 3.54 0 01-.67 2.098z" fill="rgba(255,255,255,0.6)" fill-rule="nonzero"/></svg>');
+}
+
+.support-ig img {
+    background-image: url('data:image/svg+xml,<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg"><path d="M29.172 0C35.142 0 40 4.857 40 10.828v18.345C40 35.143 35.143 40 29.173 40H10.828C4.858 40 0 35.143 0 29.173V10.828C0 4.858 4.857 0 10.828 0zM20 9.063C13.97 9.063 9.063 13.969 9.063 20c0 6.03 4.906 10.937 10.937 10.937 6.03 0 10.937-4.906 10.937-10.937 0-6.03-4.906-10.937-10.937-10.937zm0 2.345c4.738 0 8.592 3.854 8.592 8.592S24.738 28.592 20 28.592 11.408 24.738 11.408 20s3.854-8.592 8.592-8.592zm11.199-6.23a3.235 3.235 0 00-3.232 3.232 3.235 3.235 0 003.232 3.232A3.235 3.235 0 0034.43 8.41a3.236 3.236 0 00-3.232-3.232zm0 2.345a.888.888 0 010 1.774.888.888 0 010-1.774z" fill="rgba(255,255,255,0.6)" fill-rule="nonzero"/></svg>');
+}
+
+.supportWrap .supportInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 13px 0 10px;
+}
+
+.supportWrap .support-detail {
+    display: none;
+}
+
+.supportWrap .support-detail a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    color: #fff;
+    text-decoration: underline;
+}
+
+.browser-wrap {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.login-sprite,
+.power-wrap h3 img,
+.power-wrap-w img,
+.power-wrap-b img,
+.browser-wrap img,
+.time-space p,
+.mazaplay .time-space p,
+.mysports247 .time-space p,
+.skyexchange .browser-wrap img,
+.skyexchange .time-space p,
+.masterexchange .browser-wrap img,
+.matador .browser-wrap img,
+.fairenter .time-space p,
+.lucky7 .browser-wrap img,
+.qexch .browser-wrap img,
+.betmygame .browser-wrap img,
+.fancyfair .browser-wrap img,
+.maruti .time-space p,
+.marutibook .time-space p,
+.skyexchange247 .browser-wrap img,
+.skyexchange247 .time-space p,
+.oceanexch1 .browser-wrap img,
+.oceanbook1 .browser-wrap img,
+.alphaexch .time-space p,
+.alphaexchlive .time-space p,
+.maxexch9 .time-space p,
+.maxinplay .time-space p,
+.betbarter .browser-wrap img,
+.kingfair24 .time-space p,
+.kingfair24 .icon-login,
+.wickets247 .browser-wrap img,
+.wickets247 .time-space p,
+.crickex .time-space p,
+.iceEX .browser-wrap img,
+.iceEX .time-space p,
+.iceinplay .browser-wrap img,
+.dhoom .browser-wrap img,
+.agexch247 .browser-wrap img,
+.agexch247 .time-space p,
+.sportsexchlive .browser-wrap img,
+.sportsexchlive .time-space p,
+.goexch365 .browser-wrap img,
+.goexch365 .time-space p,
+.oxyinplay .browser-wrap img,
+.oxyinplay .time-space p,
+.cricfair .time-space p,
+.khelexch .browser-wrap img,
+.lionexch .browser-wrap img,
+.lionexch .time-space p,
+.skyfair .browser-wrap img,
+.skyfair .time-space p,
+.skyexchange247com .time-space p,
+.mcwex .browser-wrap img,
+.mcwex .time-space p,
+.enterfair .time-space p,
+.suninplay .browser-wrap img,
+.suninplay .time-space p,
+.betbhai247 .browser-wrap img,
+.srexch .browser-wrap img,
+.sixballcric .browser-wrap img,
+.dollarexc .browser-wrap img,
+.smash .browser-wrap img,
+.shambhu9 .browser-wrap img {
+    background-image: url(/assets/images/login-sc4dd2afc58.png);
+    background-repeat: no-repeat;
+}
+
+.browser-wrap img {
+    margin-bottom: 5px;
+}
+
+.browser-wrap img {
+    background-position: 0 -20px;
+    height: 20px;
+    width: 50px;
+}
+
+.icon-login {
+    width: 10px;
+    height: 11px;
+    background: url('data:image/svg+xml,<svg width="10" height="11" xmlns="http://www.w3.org/2000/svg"><path d="M5.71 7.706l1.432-1.604H1.778V4.898h5.39L5.71 3.294l.781-.86L9.278 5.5 6.49 8.565l-.78-.86zM1.12 0C.825 0 .564.124.339.372a1.24 1.24 0 0 0-.339.86v8.536c0 .325.113.611.339.86.225.248.486.372.78.372H8.88c.295 0 .556-.124.781-.372a1.24 1.24 0 0 0 .339-.86V7.333H8.88v2.435H1.12V1.232h7.76v2.435H10V1.232a1.24 1.24 0 0 0-.339-.86C9.436.124 9.175 0 8.881 0H1.12z" fill="%231e1e1e" fill-rule="evenodd"/></svg>') no-repeat;
+}
