@@ -1,0 +1,27 @@
+# === GLOBAL ===
+node_modules/
+.env
+.env.local
+.DS_Store
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.pem
+
+# === BACKEND (Express) ===
+backend/node_modules/
+backend/.env
+backend/dist/
+backend/coverage/
+backend/logs/
+backend/deploy.log
+
+# === FRONTEND (React) ===
+frontend/node_modules/
+frontend/.env
+frontend/.env.local
+frontend/build/
+frontend/coverage/
+frontend/.eslintcache
+frontend/public/mock-data.json
