@@ -1,19 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import ApiTester from './apiPanel/ApiTester'; // ✅ adjust this path if your folder is different
 
 function App() {
-  const [message, setMessage] = useState('');
-
-  useEffect(() => {
-    fetch('http://localhost:5000/api/hello')
-      .then(res => res.json())
-      .then(data => setMessage(data.message))
-      .catch(err => setMessage('Error fetching API'));
-  }, []);
-
   return (
-    <div style={{ padding: 20 }}>
-      <h1>React + Express Fullstack App</h1>
-      <p>{message}</p>
+    <div className="App">
+      <ApiTester />
     </div>
   );
 }
