@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+ 
 import './App.css';
 import Header from './pages/components/Header'; 
 import Home from './pages/home/Home';
@@ -40,6 +40,7 @@ import SetMarketResult from './pages/setresult/SetMarketResult';
 import AddMatch from './pages/addmatch/AddMatch';
 import DefaultSetting from './pages/addmatch/DefaultSetting';
 import CheckSportWiseResult from './pages/oldresult/CheckSportWiseResult';
+import PrivateRoute from './pages/components/PrivateRoute';
 
 function AppWrapper() {
   const location = useLocation();
@@ -53,7 +54,8 @@ function AppWrapper() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/home" element={<Home />} />
+        
+        <Route path="/home" element={<PrivateRoute><Home /></PrivateRoute>} />
         {/* My Account */}
         <Route path="/AccSummary" element={<AccSummary />} />
         <Route path="/AccStatement" element={<AccStatement />} />

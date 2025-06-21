@@ -1,40 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import './Login.css';
-import axios from "axios";
+import useLogin from "../../hooks/useLogin";
  
 
 const Login = () => {
-    const [username, setUserName] = useState("");
-    const [password, setPassword] = useState("");
-    const [showPassword, setShowPassword] = useState(false);
-    const [error, setError] = useState("");
-    const navigate = useNavigate();
+
+ const [username, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
+  const { login, loading, error } = useLogin();
+  const { token, login: loginContext } = useLogin();
+  const navigate = useNavigate();
  
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    const result = await login({ username, password });
 
-    const handleLogin = async (e) => {
-        e.preventDefault();
-        setError(""); // Clear previous error
+    if (result.success) {
+      loginContext(result.data.token, result.data.user);
+      navigate("/home");
+    }
+  };
 
-        try {
-            const res = await axios.post(`/api/v1/mpanels/user/login`, {
-                username,
-                password,
-                mpanelid: "6835a376164982c3cc2155c9", 
-            });
-
-            console.log("Login Success:", res.data);
-            navigate("/dashboard"); 
-
-        } catch (err) {
-   
-            if (err.response && err.response.data && err.response.data.message) {
-                setError(err.response.data.message);
-            } else {
-                setError("Something went wrong. Please try again.");
-            }
-        }
-    };
     return (
         <>
             <div className="body">
@@ -54,49 +43,14 @@ const Login = () => {
                                 <i onClick={() => setShowPassword(!showPassword)} style={{ position: "absolute", color: "#000", right: "10px", fontSize: "18px", cursor: "pointer" }} className={`fa ${showPassword ? "fa-eye" : "fa-eye-slash"}`} aria-hidden="true"></i>
                             </dd>
 
-                            <dd><button id="loginBtn" type="submit" className="btn-send">Login <img className="icon-login" src="/assets/images/transparent.gif" /></button>
+                            <dd><button id="loginBtn" type="submit" className="btn-send"> {loading ? "Logging in..." : "Login"} <img className="icon-login" src="/assets/images/transparent.gif" /></button>
 
                             </dd>
                             {error && <p style={{ color: "red" }}>{error}</p>}
                         </dl>
                     </form>
                 </div>
-                <div className="moreinfoWrap">
-                    <div id="supportWrap" className="supportWrap">
-                        <div className="supportService">
-                            <a id="support_email" href="#" className="support-mail ui-link"><img src="/assets/images/transparent.gif" title="Email" /></a>
-                            <a id="support_whatsapp" className="support-whatsapp ui-link"><img src="/assets/images/transparent.gif" title="WhatsApp" /></a>
-                            <a id="support_telegram" className="support-telegram ui-link"><img src="/assets/images/transparent.gif" title="Telegram" /></a>
-                            <a id="support_skype" href="#" className="support-skype ui-link"><img src="/assets/images/transparent.gif" title="Skype" /></a>
-                            <a id="support_instagram" href="#" className="support-ig ui-link"><img src="/assets/images/transparent.gif" title="Instagram" /></a>
-                            <a id="support_facebook" href="#" className="support-fb ui-link"><img src="/assets/images/transparent.gif" title="Facebook" /></a>
-                        </div>
-                        <div className="supportInfo">
-                            <div id="supportDetail_email" className="support-detail"><a id="emailContent" className="ui-link"></a></div>
-                            <div id="supportDetail_whatsapp" className="support-detail">
-                                <a id="whatsappContent" className="ui-link"></a>
-                            </div>
-                            <div id="supportDetail_telegram" className="support-detail">
-                                <a id="telegramContent" className="ui-link"></a>
-                            </div>
-                            <div id="supportDetail_skype" className="support-detail">
-                                <a id="skypeContent" className="ui-link"></a>
-                            </div>
-                            <div id="supportDetail_instagram" className="support-detail">
-                                <a id="instagramContent" className="ui-link"></a>
-                            </div>
-                            <div id="supportDetail_facebook" className="support-detail">
-                                <a id="facebookContent" className="ui-link"></a>
-                            </div>
-                        </div>
-                    </div>
-                    {/* <!-- Power by -->
-                <!-- Browser Support --> */}
-                    <div className="browser-wrap">
-                        <img src="/assets/images/transparent.gif" /><br />
-                        Our website works best in the newest and last prior version of these browsers: <br />Google Chrome. Firefox
-                    </div>
-                </div>
+                 
             </div>
         </>
     );

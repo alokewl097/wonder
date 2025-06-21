@@ -3,7 +3,11 @@ import Marquee from "../components/Marquee";
 import { Link } from "react-router-dom";
 import Modal from "../components/Modal";
 const Home = () => {
-    const [isModalOpen, setIsModalOpen] = useState(true);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const addWhitelabel = () =>{
+        console.log('hii')
+        setIsModalOpen(true)
+    }
     return (
         <>
             <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
@@ -90,8 +94,8 @@ const Home = () => {
                             </ul>
                         </ul>
                     </div>
-                    <a id="refresh" className="btn_replay"><img src="/assets/images/transparent.gif" /></a>
-                    <a className="add_member"><img src="/assets/images/transparent.gif" /><span id="createButton">Add Whitelable</span> </a>
+                    <Link id="refresh"className="btn_replay"><img src="/assets/images/transparent.gif" /></Link>
+                    <Link className="add_member"  onClick={addWhitelabel} ><img src="/assets/images/transparent.gif" /><span id="createButton">Add Whitelable</span> </Link>
                 </div>
                 <div id="totalBox" className="total_box">
                     <dl id="creditLimitDL" className="total_dl" style={{ display: "none" }}>

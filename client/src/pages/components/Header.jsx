@@ -1,6 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/authContext";
 const Header = () => {
+     const { user, logout } = useAuth();
+     const navigate = useNavigate();
+
+    const handleLogout = () => {
+        logout();
+         navigate("/");
+    };
     return(
         <div className="top">
             <div className="header">
@@ -9,7 +17,7 @@ const Header = () => {
                     </Link>
                 </h1>
                 <ul className="account-wrap">
-                    <li><span id="loginId">A</span><strong style={{ color: "var(--admintopheadertextcolor)" }}>admin</strong></li>
+                    <li><span id="loginId">A</span><strong style={{ color: "var(--admintopheadertextcolor)" }}>{user?.username}</strong></li>
                     <li className="main-wallet no-multi">
                         <Link to="#multi-balance_pop" className="a-wallet">
                         <ul>
@@ -119,8 +127,8 @@ const Header = () => {
                         <li><Link to="/CheckSportWiseResult">Old Res.
                         </Link>
                         </li>
-                        <li className="logout" onclick="selfLogoutUser()">
-                        <Link id="logout" to="/login">Logout<img src="/assets/images/transparent.gif" /></Link>
+                        <li className="logout" >
+                           <Link onClick={handleLogout}>Logout<img src="/assets/images/transparent.gif" /></Link>
                         </li>
                         <li className="time_zone"><span>Time Zone :</span> <span id="loginTimeZone" style={{ color: "var(--adminbottomheadertextcolor)", fontWeight: "bold"}}>GMT+5:30</span></li>
                     </ul>
