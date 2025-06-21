@@ -18,7 +18,7 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ message: 'Invalid username or password' });
 
 
-    const isMatch = await bcrypt.compare(password, "$2b$10$Jae9TxM1SFEFUA0pJVOMIOkXDa8yZvzeG7N7K7bxd02QpBQmt4fcq");
+    const isMatch = await bcrypt.compare(password, user.password);
     
     
     if (!isMatch)
@@ -59,11 +59,11 @@ router.post('/register', async (req, res) => {
       password,
       confirmPassword,
       creatorPassword,
-      role
+      role,
+      parent_user_id // this is still username coming from client
     } = req.body;
 
-    // Validation
-    if (!firstName || !lastName || !username || !password || !creatorPassword || !role) {
+    if (!firstName || !lastName || !username || !password || !creatorPassword || !role || !parent_user_id) {
       return res.status(400).json({ message: 'Missing required fields' });
     }
 
@@ -71,41 +71,47 @@ router.post('/register', async (req, res) => {
       return res.status(400).json({ message: 'Passwords do not match' });
     }
 
-    // Check if username is taken
     const existingUser = await User.findOne({ username });
     if (existingUser) {
       return res.status(400).json({ message: 'Username already exists' });
     }
 
-    // Find creator (owner)
     const creator = await User.findOne({ email: 'owner@gmail.com', role: 1 });
     if (!creator) {
       return res.status(403).json({ message: 'Creator not found or unauthorized' });
     }
 
-    // Match creator password
-    const isMatch = await bcrypt.compare(creatorPassword, creator.password);
-    if (!isMatch) {
+    const creatorMatch = await bcrypt.compare(creatorPassword, creator.password);
+    if (!creatorMatch) {
       return res.status(403).json({ message: 'Invalid creator password' });
     }
 
-    // Hash the user’s password
+    // ✅ Fetch parent user
+    const parentUser = await User.findOne({ username: parent_user_id });
+    if (!parentUser) {
+      return res.status(400).json({ message: 'Parent user not found' });
+    }
+
+    const expectedParentRole = role - 1;
+    if (parentUser.role !== expectedParentRole) {
+      return res.status(400).json({
+        message: `Parent user must have role ${expectedParentRole} (your parent user has role ${parentUser.role})`
+      });
+    }
+
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
- 
-    
-    let obj = {
+    const newUser = new User({
       firstName,
       lastName,
       phoneNumber,
       email,
       username,
       password: hashedPassword,
-      role
-    }
-    
-    const newUser = new User(obj);
+      role,
+      parent_user_id: parentUser._id // ✅ Save parent’s ObjectId
+    });
 
     await newUser.save();
     res.status(201).json({ message: 'User registered successfully' });
@@ -115,5 +121,8 @@ router.post('/register', async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 });
+
+
+
 
 module.exports = router;
