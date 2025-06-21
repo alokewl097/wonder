@@ -13,7 +13,7 @@ const Header = () => {
         <div className="top">
             <div className="header">
                 <h1><Link style={{ display: "flex" }} id="mainLink" to="/home">
-                    <img id="headLogo" src="" />
+                    {/* <img id="headLogo" src="" /> */}
                     </Link>
                 </h1>
                 <ul className="account-wrap">

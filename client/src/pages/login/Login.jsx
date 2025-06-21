@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import './Login.css';
 import useLogin from "../../hooks/useLogin";
  
@@ -20,9 +20,12 @@ const Login = () => {
 
     if (result.success) {
       loginContext(result.data.token, result.data.user);
-      navigate("/home");
+      window.location.href= '/home'
+    //   navigate("/home");
     }
   };
+
+ 
 
     return (
         <>
@@ -32,7 +35,7 @@ const Login = () => {
                         <img id="poupppLogo" src="https://imagedelivery.net/I9sos4ch_2vM7bVAQ311tg/baajiwala.live-mostplay-bn-desktop.webp/LoginImage?v=0.32" />
                     </div>
                     <h2 style={{ color: "#000", fontWeight: "bold", textAlign: "center" }} id="loginMessage">-</h2>
-                    <form name="loginForm" method="post" onSubmit={handleLogin} accept-charset="utf-8" autocomplete="off">
+                    <form name="loginForm" method="post" onSubmit={handleLogin}>
                         <dl className="login-panel">
                             <dt>Login</dt>
                             <dd>
